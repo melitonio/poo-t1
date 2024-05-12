@@ -5,10 +5,11 @@ import java.util.Calendar;
 public class Persona {
     private String nombre;
     private String apellidos;
-    private String FechaNacimiento;
+    private String FechaNacimiento; // formato dd/mm/aaaa
     private char sexo;
     private double peso;
 
+    
     public Persona(String nombre, String apellidos, String fechaNacimiento, char sexo, double peso) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -58,7 +59,7 @@ public class Persona {
     }
 
     public int edad(int a) {
-        return a - Integer.parseInt(FechaNacimiento.substring(0,4));
+        return a - Integer.parseInt(FechaNacimiento.substring(6, 10));
     }
 
 public void imprimir() {

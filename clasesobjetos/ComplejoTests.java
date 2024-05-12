@@ -4,14 +4,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class ComplejoTests {
-    public static void main(String[] args) {
-        Complejo c1 = new Complejo(3, 4);
-        Complejo c2 = new Complejo(1, 2);
-
-        c1.imprimir();
-        c2.imprimir();
-    }
-
     @Test
     public void testComplejo() {
         Complejo c1 = new Complejo(3, 4);
