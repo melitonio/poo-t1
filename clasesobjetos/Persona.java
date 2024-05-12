@@ -5,15 +5,14 @@ import java.util.Calendar;
 public class Persona {
     private String nombre;
     private String apellidos;
-    private String FechaNacimiento; // formato dd/mm/aaaa
+    private String fechaNacimiento; // formato dd/mm/aaaa
     private char sexo;
     private double peso;
 
-    
     public Persona(String nombre, String apellidos, String fechaNacimiento, char sexo, double peso) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.FechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.sexo = sexo;
         this.peso = peso;
     }
@@ -27,7 +26,7 @@ public class Persona {
     }
 
     public String getFechaNacimiento() {
-        return FechaNacimiento;
+        return fechaNacimiento;
     }
 
     public char getSexo() {
@@ -47,7 +46,7 @@ public class Persona {
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
-        this.FechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public void setSexo(char sexo) {
@@ -55,14 +54,18 @@ public class Persona {
     }
 
     public void setPeso(double peso) {
+        if (peso < 0) {
+            System.out.println("El peso no puede ser negativo.");
+            return;
+        }
         this.peso = peso;
     }
 
     public int edad(int a) {
-        return a - Integer.parseInt(FechaNacimiento.substring(6, 10));
+        return a - Integer.parseInt(fechaNacimiento.substring(6, 10));
     }
 
-public void imprimir() {
+    public void imprimir() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         System.out.println("### DATOS PERSONALES ###");
         System.out.println("\tNombre: " + nombre + " " + apellidos);
@@ -71,6 +74,23 @@ public void imprimir() {
         System.out.println("\tPeso:   " + peso);
         System.out.println("### ### ### ### ### ###");
         System.out.println();
+    }
+
+    public String saludo() {
+        // Calcular la edad
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int h = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+
+        // Formatear el mensaje de saludo
+        String mensaje = String.format(
+                "Hola,\n%s %s, tu sexo es %s, tu peso es de %.1f Kg y tu edad es de %d años.\nQue tengas un buen dia. Son las %dH.",
+                this.nombre,
+                this.apellidos,
+                this.sexo,
+                this.peso,
+                this.edad(year),
+                h);
+        return mensaje;
     }
 
 }
