@@ -65,6 +65,10 @@ public class Persona {
         return a - Integer.parseInt(fechaNacimiento.substring(6, 10));
     }
 
+    public String nombreCompleto() {
+        return nombre + " " + apellidos;
+    }
+
     public void imprimir() {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         System.out.println("### DATOS PERSONALES ###");

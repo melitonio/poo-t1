@@ -93,6 +93,13 @@ public class PersonaTests {
     @Test
     public void testSaludar() {
         Persona p = new Persona("Juan", "Perez Gonzalez", "01/01/2000", 'H', 70.0);
-        System.err.println(p.saludo());    
+        System.out.println(p.saludo());    
+    }
+
+    @Test
+    public void testNombreCompleto()
+    {  
+        Persona p = new Persona("Juan", "Perez Gonzalez", "01/01/2000", 'H', 70.0);
+        assertEquals("Juan Perez Gonzalez", p.nombreCompleto());
     }
 }
