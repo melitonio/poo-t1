@@ -87,14 +87,21 @@ public class Persona {
 
         // Formatear el mensaje de saludo
         String mensaje = String.format(
-                "Hola,\n%s %s, tu sexo es %s, tu peso es de %.1f Kg y tu edad es de %d años.\nQue tengas un buen dia. Son las %dH.",
-                this.nombre,
-                this.apellidos,
-                this.sexo,
-                this.peso,
-                this.edad(year),
-                h);
+                "Hola,\n%s %s, tu sexo es %s, tu peso es de %.1fKg \n" +
+                        "y tu edad es de %d anios.\n"+ 
+                        "Que tengas un buen dia. Son las %dH.",
+                this.nombre, this.apellidos, this.sexo, this.peso, this.edad(year), h);
         return mensaje;
+    }
+
+    public boolean esMayorDeEdad() {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        return edad(year) >= 18;
+    }
+
+    public boolean esMayorQue(Persona p) {
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        return edad(year) > p.edad(year);
     }
 
 }

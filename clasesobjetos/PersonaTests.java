@@ -86,13 +86,13 @@ public class PersonaTests {
 
     @Test
     public void testImprimir() {
-        Persona p = new Persona("Juan", "Perez", "01/01/2000", 'H', 70.0);
+        Persona p = new Persona("Antonia", "Oyana Mun", "27-04-1997", 'F', 62.7);
         p.imprimir();
     }
 
     @Test
     public void testSaludar() {
-        Persona p = new Persona("Juan", "Perez Gonzalez", "01/01/2000", 'H', 70.0);
+        Persona p = new Persona("Antonia", "Oyana Mun", "27-04-1997", 'F', 62.7);
         System.out.println(p.saludo());    
     }
 
